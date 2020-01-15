@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Devenney Wedding</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta property="og:site_name" content="Devenney Wedding">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Brendan Devenney and Laura Gunn - Wedding">
+
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon"/>
+
+    {{> partials/ga }}
+
+    <script src="main.js"></script>
+    <script src="elevator.js"></script>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2.4.1/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function(){
+           emailjs.init('user_WEoDwkkb1XLeoV884O2sp');
+        })();
+    </script>
+    <script type="text/javascript">
+        window.onload = function() {
+            document.getElementById('rsvpForm').addEventListener('submit', function(event) {
+                event.preventDefault();
+                emailjs.sendForm('gmail', 'template_0T4KSLNX', this);
+
+                document.getElementById('rsvpForm').innerHTML = "<h3>Success! Thank you for responding.</h3>"
+            });
+        }
+    </script>
+
+    <script>
+    // Elevator script included on the page, already.
+
+    window.onload = function() {
+      var elevator = new Elevator({
+        element: document.querySelector('#to-rsvp'),
+        targetElement: document.querySelector('#rsvp'),
+        mainAudio: 'media/elevator.mp3',
+        endAudio: 'media/ding.mp3',
+        duration: 5000,
+        verticalPadding: 300
+      });
+    }
+    </script>
+  </head>
+
+  <body>
+    <div class="container">
+      <section class="header">
+        <h1>Laura and Brendan</h1>
+        <h4>Carlowrie Castle, 2020</h4>
+        <h6>
+          <a href="#timeline"><i class="fas fa-arrow-down"></i></a>
+          &nbsp; &nbsp;
+          <a id="to-rsvp"><i class="fas fa-envelope"></i></a>
+        </h6>
+      </section>
+    </div>
+
+    <section class="header">
+      <hr>
+    </section>
+
+    <div id="timeline" class="timeline-main">
+      <div class="timeline-entry">
+        <h2><i class="fab fa-lastfm" style="color: pink;"></i> Super Compatible</h2>
+        <p><a href="https://www.last.fm/user/Laurrraaaxx">Laurrraaaxx</a> and <a href="https://www.last.fm/user/sermperfisocius">SemperfiSocius</a> meet on <a href="https://www.last.fm/">Last.fm</a>.</p>
+      </div>
+
+      <div class="timeline-entry">
+        <h2><i class="fas fa-film" style="color: pink;"></i> Robin Hood</h2>
+        <p>Watching Russell Crowe steal from the rich and give to the poor gives Laura an idea. She sets her sights on Brendan.</p>
+      </div>
+
+      <div class="timeline-entry">
+        <h2><i class="fa fa-grin-hearts" style="color: pink;"></i> It's official!</h2>
+        <p>Brendan falls for Laura's tricks. On the 2nd July 2010 he asks her out.</p>
+      </div>
+
+      <div class="timeline-entry">
+        <h2><i class="fa fa-handshake" style="color: pink;"></i> Seal of Approval</h2>
+        <p>9th December, 2017. Shirley turns 40 but the banners are misprinted with "50". Brendan asks the big man for his daughter's hand in marriage. Colin mumbles something unintelligible about coffee - a sign of approval.</p>
+      </div>
+
+      <div class="timeline-entry">
+        <h2><i class="fas fa-ring" style="color: pink;"></i> Target locked. Engage!</h2>
+        <p>June 2nd, 2018. Paris. Brendan gets down on one knee in Jardin du Luxembourg.</p>
+      </div>
+
+      <div class="timeline-entry">
+        <h2><i class="fas fa-cocktail" style="color: pink;"></i> July 2nd, 2020</h2>
+        <p>Ten years later, the next chapter begins. <a href="rsvp">Will you be there?</a></p>
+      </div>
+    </div>
+
+    <hr />
+    <div id="rsvp" class="container">
+      <section class="header">
+        <h1>RSVP</h1>
+
+        <form id="rsvpForm">
+          <div class="row">
+            <div class="six columns">
+              <label for="rsvpName">Name(s)</label>
+              <input name="rsvpName" class="u-full-width" type="text" placeholder="Gwen Thackeray" id="rsvpName">
+            </div>
+            <div class="six columns">
+              <label for="rsvpAttendance">RSVP</label>
+              <select name="rsvpAttendance" class="u-full-width" id="rsvpAttendance">
+                <option value="Attending">Attending</option>
+                <option value="Unable to Attend">Unable to Attend</option>
+              </select>
+            </div>
+          </div>
+          <label for="rsvpMessage">Message</label>
+          <textarea name="rsvpMessage" class="u-full-width" placeholder="The beacons are lit..." id="rsvpMessage"></textarea>
+          <input class="button-primary" type="submit" value="Submit">
+        </form>
+      </section>
+    </div>
+
+    <section class="header">
+      <hr>
+    </section>
+  </body>
+</html>
